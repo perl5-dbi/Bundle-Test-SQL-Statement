@@ -1,0 +1,8 @@
+Makefile.PL
+Changes
+MANIFEST
+README
+lib/Bundle/Test/SQL/Statement.pm
+xt/manifest.t
+xt/pod-coverage.t
+xt/pod.t
