@@ -8,11 +8,12 @@ use ExtUtils::MakeMaker;
 WriteMakefile1(
     MIN_PERL_VERSION => '5.008',
     META_MERGE       => {
-                    resources => {
-# not public # repository => 'https://svn.perl.org/modules/SQL-Statement/trunk/',
-                                  MailingList => 'mailto:dbi-dev@perl.org',
-                                  license     => 'http://dev.perl.org/licenses/',
-                                 },
+        resources => {
+            # not public # repository => 'http://waldorf.muppets.liwing.de/svn-root/cpan-mod/Bundle-Test-SQL-Statement/trunk',
+            MailingList => 'mailto:dbi-dev@perl.org',
+            license     => 'http://dev.perl.org/licenses/',
+        },
+        recommends => { 'Bundle::DBD::DBM' => '0.06', },
                   },
     NAME          => 'Bundle::Test::SQL::Statement',
     VERSION_FROM  => 'lib/Bundle/Test/SQL/Statement.pm',
@@ -23,21 +24,19 @@ WriteMakefile1(
               'COMPRESS'     => "gzip -9vf"
             },
     PREREQ_PM => {
-                   'SQL::Statement'      => '1.33',
-		   # means: DBI >= 1.616
-		   'DBI::DBD::SqlEngine' => '0.03',
-		   'DBD::File'           => '0.40',
-		   'DBD::AnyData'        => '0.110',
-		   'DBD::CSV'            => '0.30',
-		   'DBD::SQLite'         => '0',
-		   'Bundle::DBD::DBM'    => '0.06',
+        'SQL::Statement' => '1.33',
+        # means: DBI >= 1.616
+        'DBI::DBD::SqlEngine' => '0.03',
+        'DBD::File'           => '0.40',
+        'DBD::AnyData'        => '0.110',
+        'DBD::CSV'            => '0.31',
+        'DBD::SQLite'         => '0',
+        'DBD::DBM'            => '0.06',
                  },
     LICENSE        => 'perl',
-    BUILD_REQUIRES => {
-        'Test::Simple' => '0.90',
-                      },
-    AUTHOR => 'Jens Rehsack <rehsack@cpan.org>',
-    test   => { TESTS => 't/*.t xt/*.t' },
+    BUILD_REQUIRES => { 'Test::Simple' => '0.90', },
+    AUTHOR         => 'Jens Rehsack <rehsack@cpan.org>',
+    test           => { TESTS => 't/*.t xt/*.t' },
               );
 
 sub WriteMakefile1
